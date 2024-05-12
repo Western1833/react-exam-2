@@ -5,7 +5,7 @@ const Navigation = () => {
         <header class="site-section site-header">
             <div class="site-logo">
                 <a routerLink="/">
-                    <img src="assets/remade-logo-2.png" alt="Logo" />
+                    <img src="remade-logo-2.png" alt="Logo" />
                 </a>
                 <a routerLink="/"><span>CarSales</span></a>
             </div>

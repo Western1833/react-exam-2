@@ -1,7 +1,9 @@
+import '../footer/footer-styles.css';
+
 const Footer = () => {
     return (
         <footer>
-            <p>Iliya Kashev Angular exam project 2024 &copy;</p>
+            <p>Iliya Kashev React exam project 2024 &copy;</p>
         </footer>
     );
 };

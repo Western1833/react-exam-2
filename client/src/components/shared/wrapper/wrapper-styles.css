@@ -1,0 +1,12 @@
+.site-section.banner {
+    height: calc(100vh - 9em);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #000015 ;
+    background-image: url('black-concrete-wall.jpg');
+}
+
+.site-section {
+    padding: 2em;
+}
