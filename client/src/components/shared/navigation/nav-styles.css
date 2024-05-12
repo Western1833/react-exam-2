@@ -1,0 +1,66 @@
+.site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5em 0 0 1em;
+    background-color: #121212 ;
+}
+
+.site-header nav ul {
+    display: flex;
+    gap: 2em;
+}
+
+nav li {
+    list-style: none outside;
+    font-size: 18px;
+}
+
+nav li:last-child {
+    padding-right: 1.5em;
+}
+
+nav li a {
+    text-decoration: none;
+    color: #CCFF00 ;
+    padding: 0.2em 0.5em 0.2em 0.5em;
+    transition: background-color 0.3s ease, color 0.3s ease, padding 0.3s ease;
+    border-radius: 0.4em;
+}
+
+nav li span {
+    color: rgb(210, 209, 209);
+    padding: 0.2em 0.5em 0.2em 0.5em;
+}
+
+nav li a:hover {
+    background-color: #CCFF00;
+    color: black;
+    padding: 0.5em 0.5em 0.5em 0.5em;
+}
+
+.site-logo img{
+    width: 4.5em;
+    background-color: #CCFF00;
+    border-radius: 3em;
+    margin-right: 1.2em;
+}
+
+.site-logo {
+    display: flex;
+    align-items: center;
+}
+
+.site-logo a {
+    display: inline;
+    text-decoration: none;
+}
+
+.site-logo span {
+    font-size: 2em;
+    color: #CCFF00;
+}
+
+.site-logo {
+    flex: 1;
+}
