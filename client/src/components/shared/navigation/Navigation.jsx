@@ -4,10 +4,10 @@ const Navigation = () => {
     return (
         <header class="site-section site-header">
             <div class="site-logo">
-                <a routerLink="/">
+                <a href="/">
                     <img src="remade-logo-2.png" alt="Logo" />
                 </a>
-                <a routerLink="/"><span>CarSales</span></a>
+                <a href="/"><span>CarSales</span></a>
             </div>
             <nav>
                 <ul>
@@ -22,14 +22,14 @@ const Navigation = () => {
             <li *ngIf="!userDataInStorage"><a routerLink="/login">Login</a></li>
             <li *ngIf="!userDataInStorage"><a routerLink="/register">Register</a></li> */}
                     <li><span>Hello, Iliya</span></li>
-                    <li><a>Home</a></li>
+                    <li><a href='/'>Home</a></li>
                     <li><a>Catalog</a></li>
 
                     <li><a>Add car</a></li>
                     <li><a>My cars</a></li>
                     <li><a>Logout</a></li>
 
-                    <li><a>Login</a></li>
+                    <li><a href='/login'>Login</a></li>
                     <li><a>Register</a></li>
                 </ul>
             </nav>
