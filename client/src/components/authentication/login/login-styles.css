@@ -1,9 +1,11 @@
 .login-form-container {
-    width: 30.5em;
-    height: 30em;
+    width: 31em;
+    height: 30.5em;
     border-radius: 0.4em;
     background-image: url('/leaver.jpg');
     background-position: center;
+    display: flex;
+    align-items: center;
 }
 
 .login-form {
