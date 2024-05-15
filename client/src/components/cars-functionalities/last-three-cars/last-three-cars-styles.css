@@ -1,0 +1,38 @@
+.container-last-three {
+    margin-top: 0;
+    padding: 0;
+    background-color: rgba(173, 173, 173, 0.2);
+    border-radius: 0.8em;
+    padding: 2em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container-last-three h4 {
+    color: #CCFF00;
+}
+
+.products {
+    display: flex;
+    justify-content: space-between;
+    gap: 5em;
+    margin-top: 1em;
+}
+
+.if-cars {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.if-noCars p {
+    color: #d0cfcf;
+    font-size: 1.3em;
+}
+
+.if-noCars a {
+    color: #CCFF00;
+    text-decoration: none;
+    font-size: 1.1em;
+}

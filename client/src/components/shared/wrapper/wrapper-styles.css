@@ -1,5 +1,5 @@
 .site-section.banner {
-    height: calc(100vh - 9em);
+    height: calc(100vh - 8em);
     display: flex;
     align-items: center;
     justify-content: center;
