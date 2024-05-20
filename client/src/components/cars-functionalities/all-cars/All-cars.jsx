@@ -4,19 +4,19 @@ import { useEffect, useState } from "react";
 import * as carService from '../../../services/CarServices.js';
 
 export default function AllCars() {
-    const [games, setGames] = useState([]);
+    const [cars, setCars] = useState([]);
 
     useEffect(() => {
         carService.getAllCars()
-        .then(result => setGames(result));
+        .then(result => setCars(result));
     }, []);
-
-    console.log(games)
 
     return (
         <div className="allCars-wrapper">
             <div className="car-row">
-                <CarCard/>
+                {cars.map(car => (
+                    <CarCard {...car} key={car._id}/>
+                ))}
             </div>
         </div>
     );

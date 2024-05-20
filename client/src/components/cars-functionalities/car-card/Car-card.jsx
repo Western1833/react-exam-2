@@ -1,6 +1,11 @@
 import '../car-card/car-card-styles.css';
 
-export default function CarCard() {
+export default function CarCard({
+    imageUrl,
+    model,
+    brand,
+    price
+}) {
     return (
         //         <div className="card">
         //     <a routerLink="/data/details" (click)="onDetailsClick()"><img [src]="car.imageUrl" alt="car"/></a>
@@ -14,11 +19,11 @@ export default function CarCard() {
         //     </div>
         // </div>
         <div className="card">
-            <a><img alt="car" /></a>
+            <a><img src={imageUrl} alt="car" /></a>
             <ul>
-                <li>Brand: BMW</li>
-                <li>Model: 530d</li>
-                <li>Price: 7600$</li>
+                <li>Brand: {brand}</li>
+                <li>Model: {model}</li>
+                <li>Price: {price}$</li>
             </ul>
             <div className="btn-details">
                 <button>Details</button>
