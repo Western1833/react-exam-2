@@ -24,7 +24,7 @@ const Navigation = () => {
             <li *ngIf="!userDataInStorage"><a routerLink="/register">Register</a></li> */}
                     <li><span>Hello, Iliya</span></li>
                     <li><Link to='/'>Home</Link></li>
-                    <li><a>Catalog</a></li>
+                    <li><Link to='/all-cars'>Catalog</Link></li>
 
                     <li><Link to='/add-car'>Add car</Link></li>
                     <li><a>My cars</a></li>
