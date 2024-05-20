@@ -19,7 +19,7 @@ export default function CarCard({
         //     </div>
         // </div>
         <div className="card">
-            <a><img src={imageUrl} alt="car" /></a>
+            <a><img src={imageUrl} alt="car"/></a>
             <ul>
                 <li>Brand: {brand}</li>
                 <li>Model: {model}</li>

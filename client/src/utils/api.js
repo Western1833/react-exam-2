@@ -8,7 +8,8 @@ export const PATHS = {
     create: '/data/create',
     details: '/cars',
     myCars: '/data/myCars',
-    edit: '/cars/:id/edit'
+    edit: '/cars/:id/edit',
+    lastThreeCars: '?sortBy=_createdOn desc&offset=0&pageSize=3'
 }
 
 export const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
