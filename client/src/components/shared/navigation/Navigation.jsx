@@ -3,8 +3,8 @@ import {Link} from 'react-router-dom';
 
 const Navigation = () => {
     return (
-        <header class="site-section site-header">
-            <div class="site-logo">
+        <header className="site-section site-header">
+            <div className="site-logo">
                 <Link to="/">
                     <img src="remade-logo-2.png" alt="Logo" />
                 </Link>
