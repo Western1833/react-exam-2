@@ -1,38 +1,35 @@
 import { DetailsFunctionalities } from '../details-functionalities/Details-functionalities.jsx';
 import '../details/details-styles.css';
+import { useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { getSingleCar } from '../../../services/CarServices.js';
 
 export function Details() {
-    return (
-        //         <div class="card">
-        //     <img src={{carDetails?.imageUrl}}/>
-        //     <div class="edit-content-wrapper">
-        //         <ul>
-        //             <li>Brand: {{carDetails?.brand}}</li>
-        //             <li>Model: {{carDetails?.model}}</li>
-        //             <li>Year: {{carDetails?.year}}</li>
-        //             <li>Price: {{carDetails?.price}}$</li>
-        //         </ul>
+    const {id} = useParams();
+    const [car, setCar] = useState({});
 
-        //         <aside>
-        //             <textarea name="edit-textarea" id="edit-content-wrapper" cols="27" rows="4" disabled>{{carDetails?.description}}</textarea>
-        //             <span>Phone number: {{carDetails?.phoneNumber}}</span>
-        //         </aside>
-        //     </div>
-        //     <app-details-functionalities [carDetails]="carDetails"/>
-        // </div>
+    useEffect(() => {
+        getSingleCar(id)
+        .then(car => setCar(car))
+        .catch(err => console.log(err));
+    }, [id]);
+
+    console.log(car)
+
+    return (
         <div className="card-details">
-            <img src='' />
+            <img src={ car.imageUrl } />
             <div className="edit-content-wrapper">
                 <ul>
-                    <li>Brand: BMW</li>
-                    <li>Model: 530d</li>
-                    <li>Year: 2004</li>
-                    <li>Price: 7600$</li>
+                    <li>Brand: { car.brand }</li>
+                    <li>Model: { car.model }</li>
+                    <li>Year: { car.year }</li>
+                    <li>Price: { car.price }$</li>
                 </ul>
 
                 <aside>
-                    <textarea name="edit-textarea" id="edit-content-wrapper" cols="27" rows="4" disabled>{ }</textarea>
-                    <span>Phone number: 02746960</span>
+                    <textarea name="edit-textarea" id="edit-content-wrapper" cols="27" rows="4" disabled value={car.description}></textarea>
+                    <span>Phone number: { car.phoneNumber }</span>
                 </aside>
             </div>
             <DetailsFunctionalities/>

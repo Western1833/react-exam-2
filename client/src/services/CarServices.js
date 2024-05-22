@@ -10,3 +10,8 @@ export const getLastThreeCars = async () => {
     const result = await get(PATHS.baseUrl+PATHS.cars+PATHS.lastThreeCars);
     return Object.values(result);
 }
+
+export const getSingleCar = async (id) => {
+    const result = await get(PATHS.baseUrl+PATHS.cars+'/'+id);
+    return result;
+}
