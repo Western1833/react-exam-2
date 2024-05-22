@@ -1,10 +1,12 @@
 import '../car-card/car-card-styles.css';
+import { Link } from 'react-router-dom';
 
 export default function CarCard({
     imageUrl,
     model,
     brand,
-    price
+    price,
+    _id
 }) {
     return (
         //         <div className="card">
@@ -19,14 +21,16 @@ export default function CarCard({
         //     </div>
         // </div>
         <div className="card">
-            <a><img src={imageUrl} alt="car"/></a>
+            <a><img src={imageUrl} alt="car" /></a>
             <ul>
                 <li>Brand: {brand}</li>
                 <li>Model: {model}</li>
                 <li>Price: {price}$</li>
             </ul>
             <div className="btn-details">
-                <button>Details</button>
+                <Link to={`/details/${_id}`}>
+                    <button>Details</button>
+                </Link>
             </div>
         </div>
     )
