@@ -21,7 +21,7 @@ export default function CreateCar() {
         <div className="createCar-form-container">
             <form className="createCar-form" onSubmit={createCarSubmitHandler}>
                 <h3>Add your car</h3>
-                <div className="fields">
+                <div className="fields-create">
                     <div className="img-select">
                         <input type="text" id="image-select" placeholder="Image url..." name="imageUrl" />
                     </div>

@@ -30,7 +30,7 @@ export default function Login() {
 <div className="login-form-container">
     <form className="login-form">
         <h3>Login</h3>
-        <div className="fields">
+        <div className="fields-login">
             <input type="text" placeholder="Email..." name="email" autocomplete="email" required/>
                     {/* <p className="error">Email is required!</p>
                     <p className="error">Email is not valid!</p>                 */}

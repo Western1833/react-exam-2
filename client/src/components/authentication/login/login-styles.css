@@ -24,7 +24,7 @@
     margin-bottom: 1em;
 }
 
-.fields {
+.fields-login {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -33,7 +33,7 @@
     height: 60%;
 }
 
-.fields input[type='text'] {
+.fields-login input[type='text'] {
     width: 80%;
     border: none;
     height: 2.6rem;
@@ -44,16 +44,16 @@
     font-size: 1.125em;
 }
 
-.fields input[type='text']::placeholder{
+.fields-login input[type='text']::placeholder{
     color: rgba(251, 251, 251, 0.5);
     font-size: 1em;
 }
 
-.fields input[type='text']:focus {
+.fields-login input[type='text']:focus {
     outline: 1px solid #CCFF00;
 }
 
-.fields input[type='password'] {
+.fields-login input[type='password'] {
     width: 80%;
     border: none;
     height: 2.5rem;
@@ -64,16 +64,16 @@
     font-size: 1.125em;
 }
 
-.fields input[type='password']:focus {
+.fields-login input[type='password']:focus {
     outline: 1px solid #CCFF00;
 }
 
-.fields input[type='password']::placeholder{
+.fields-login input[type='password']::placeholder{
     color: rgba(251, 251, 251, 0.5);
     font-size: 1em;
 }
 
-.fields input[type='submit'] {
+.fields-login input[type='submit'] {
     width: 80%;
     border: none;
     height: 2.4em;
@@ -83,7 +83,7 @@
     transition: background-color 0.3s ease, color 0.3s ease, padding 0.3s ease;
 }
 
-.fields input[type='submit']:hover {
+.fields-login input[type='submit']:hover {
     background-color: #CCFF00;
     cursor: pointer;
 }
