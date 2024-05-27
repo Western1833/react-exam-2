@@ -6,7 +6,7 @@ const Navigation = () => {
         <header className="site-section site-header">
             <div className="site-logo">
                 <Link to="/">
-                    <img src="remade-logo-2.png" alt="Logo" />
+                    <img src="/remade-logo-2.png" alt="Logo" />
                 </Link>
                 <Link to="/"><span>CarSales</span></Link>
             </div>
