@@ -27,7 +27,7 @@ export function DetailsFunctionalities() {
         <button id="likes-btn">Likes</button>
         <input type="number" id="likes" disabled/>
         <button type="button" className="submit-with-icon">
-            <img src="../../../assets/thumbsup.png" alt="Like"/></button>
+            <img src="/thumbsup.png" alt="Like"/></button>
     </div>
     <a id="edit-link" >Edit</a>
     <a id="delete-link" >Delete</a>
