@@ -1,8 +1,12 @@
 import "../login/login-styles.css";
 import useForm from "../../../hooks/useForm.js";
+import { useContext } from "react";
+import AuthContext from "../../../contexts/authContext.js";
 
 export default function Login() {
-    const {values, onChange, onSubmit} = useForm({
+    const {loginSubmitHandler} = useContext(AuthContext);
+    
+    const {values, onChange, onSubmit} = useForm(loginSubmitHandler, {
         email: '',
         password: ''
     });
@@ -37,7 +41,7 @@ export default function Login() {
     <form className="login-form" onSubmit={onSubmit}>
         <h3>Login</h3>
         <div className="fields-login">
-            <input type="text" placeholder="Email..." name="email" autocomplete="email" onChange={onChange} value={values.email}/>
+            <input type="text" placeholder="Email..." name="email" autoComplete="email" onChange={onChange} value={values.email}/>
                     {/* <p className="error">Email is required!</p>
                     <p className="error">Email is not valid!</p>                 */}
             <input type="password" placeholder="Password..." name="password" onChange={onChange} value={values.password}/>

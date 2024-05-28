@@ -3,7 +3,6 @@ import Navigation from "./components/shared/navigation/Navigation.jsx"
 import Wrapper from "./components/shared/wrapper/Wrapper.jsx";
 
 function App() {
-
   return (
     <>
       <Navigation/>
