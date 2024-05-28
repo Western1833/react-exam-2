@@ -1,6 +1,12 @@
 import "../login/login-styles.css";
+import useForm from "../../../hooks/useForm.js";
 
 export default function Login() {
+    const {values, onChange, onSubmit} = useForm({
+        email: '',
+        password: ''
+    });
+
     return (
 //         <div class="login-form-container">
 //             <form class="login-form" #form="ngForm" (ngSubmit)="login(form)">
@@ -28,13 +34,13 @@ export default function Login() {
 //     </form >
 // </div >
 <div className="login-form-container">
-    <form className="login-form">
+    <form className="login-form" onSubmit={onSubmit}>
         <h3>Login</h3>
         <div className="fields-login">
-            <input type="text" placeholder="Email..." name="email" autocomplete="email" required/>
+            <input type="text" placeholder="Email..." name="email" autocomplete="email" onChange={onChange} value={values.email}/>
                     {/* <p className="error">Email is required!</p>
                     <p className="error">Email is not valid!</p>                 */}
-            <input type="password" placeholder="Password..." name="password" required/>
+            <input type="password" placeholder="Password..." name="password" onChange={onChange} value={values.password}/>
             
                 {/* <p className="error" >Password is required!</p>
                 <p className="error" >Password is too short, minimum 4 chars!</p> */}

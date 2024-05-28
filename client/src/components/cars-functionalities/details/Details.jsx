@@ -14,8 +14,6 @@ export function Details() {
         .catch(err => console.log(err));
     }, [id]);
 
-    console.log(car)
-
     return (
         <div className="card-details">
             <img src={ car.imageUrl } />
