@@ -2,41 +2,23 @@ import "../login/login-styles.css";
 import useForm from "../../../hooks/useForm.js";
 import { useContext } from "react";
 import AuthContext from "../../../contexts/authContext.js";
+import { useNavigate } from "react-router-dom";
+import { PATHS } from "../../../utils/api.js";
 
 export default function Login() {
     const {loginSubmitHandler} = useContext(AuthContext);
+    const navigate = useNavigate();
 
-    const {values, onChange, onSubmit} = useForm(loginSubmitHandler, {
+    const { values, onChange, onSubmit } = useForm(async (formValues) => {
+        console.log('Login form submitted', formValues); // Log to check form submission
+        await loginSubmitHandler(formValues);
+        navigate(PATHS.home); // Navigate after successful login
+      }, {
         email: '',
         password: ''
-    });
+      });
 
     return (
-//         <div class="login-form-container">
-//             <form class="login-form" #form="ngForm" (ngSubmit)="login(form)">
-//             <h3>Login</h3>
-//             <div class="fields">
-//                 <input type="text" placeholder="Email..." name="email" ngModel #inputEmail="ngModel" [appEmail]="''" autocomplete="email" required>
-//                 <ng-container *ngIf="inputEmail.touched">
-//                 <p class="error" *ngIf="inputEmail.errors?.['required']">Email is required!</p>
-//             <p class="error" *ngIf="inputEmail.errors?.['invalidEmail'] && !inputEmail.errors?.['required']">Email is not valid!</p>
-//                 </ng - container >
-//             <input type="password" placeholder="Password..." name="password" ngModel #inputPassword="ngModel" required minlength="4">
-//             <ng-container *ngIf="inputPassword.touched">
-//                 <p class="error" *ngIf="inputPassword.errors?.['required']">Password is required!</p>
-//                 <p class="error" * ngIf="inputPassword.errors?.['minlength']" > Password is too short, minimum 4 chars!</p >
-//             </ng - container >
-//         <input type="submit" value="Login" [disabled] = "form.invalid" >
-//         </div >
-//         <ng-container * ngIf="errorMessage" >
-//             <p class="error">{{ errorMessage }}</p>
-//         </ng - container >
-//         <div class="message">
-//             <p>Don't have an account?</p>
-//             <a routerLink="/register">Sign up</a>
-//         </div>
-//     </form >
-// </div >
 <div className="login-form-container">
     <form className="login-form" onSubmit={onSubmit}>
         <h3>Login</h3>

@@ -1,7 +1,13 @@
+import { useContext } from 'react';
 import '../navigation/nav-styles.css';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import AuthContext from '../../../contexts/authContext.js';
 
 const Navigation = () => {
+    const { isAuthenticated, email } = useContext(AuthContext);
+    console.log(email)
+    console.log(isAuthenticated)
+
     return (
         <header className="site-section site-header">
             <div className="site-logo">
@@ -11,28 +17,29 @@ const Navigation = () => {
                 <Link to="/"><span>CarSales</span></Link>
             </div>
             <nav>
-                <ul>
-                    {/* <li *ngIf="userDataInStorage"><span>Hello, {{userDataInStorage.username}}</span></li>
-            <li><a routerLink="/">Home</a></li>
-            <li><a routerLink="/data/catalog">Catalog</a></li>
-            <!-- logged in users -->
-            <li *ngIf="userDataInStorage"><a routerLink="/data/add-car">Add car</a></li>
-            <li *ngIf="userDataInStorage"><a routerLink="/data/my-cars">My cars</a></li>
-            <li *ngIf="userDataInStorage"><a (click)="logout()" routerLink="/logout">Logout</a></li>
-            <!-- logged out users -->
-            <li *ngIf="!userDataInStorage"><a routerLink="/login">Login</a></li>
-            <li *ngIf="!userDataInStorage"><a routerLink="/register">Register</a></li> */}
-                    <li><span>Hello, Iliya</span></li>
-                    <li><Link to='/'>Home</Link></li>
-                    <li><Link to='/all-cars'>Catalog</Link></li>
+                {
+                    isAuthenticated && (
+                        <ul>
+                            <li><span>User: {email}</span></li>
+                            <li><Link to='/'>Home</Link></li>
+                            <li><Link to='/add-car'>Add car</Link></li>
+                            <li><a>My cars</a></li>
+                            <li><a>Logout</a></li>
+                        </ul>
 
-                    <li><Link to='/add-car'>Add car</Link></li>
-                    <li><a>My cars</a></li>
-                    <li><a>Logout</a></li>
+                    )
+                }
 
-                    <li><Link to='/login'>Login</Link></li>
-                    <li><a>Register</a></li>
-                </ul>
+                {
+                    !isAuthenticated && (
+                        <ul>
+                            <li><Link to='/'>Home</Link></li>
+                            <li><Link to='/all-cars'>Catalog</Link></li>
+                            <li><Link to='/login'>Login</Link></li>
+                            <li><a>Register</a></li>
+                        </ul>
+                    )
+                }
             </nav>
         </header>
     );
