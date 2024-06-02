@@ -4,7 +4,7 @@ const buildOptions = (data) => {
     if(data) {
         options.body = JSON.stringify(data);
         options.headers = {
-            'X-Authorization': 'token'
+            'content-type': 'application/json'
         }
     }
 
@@ -16,10 +16,6 @@ const request = async (method, url, data) => {
         method,
         ...buildOptions(data)
     });
-
-    if(!response.ok){
-        throw new Error('Error while fetching data: ');
-    }
 
     const result = await response.json();
 
