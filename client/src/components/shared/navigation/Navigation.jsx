@@ -4,9 +4,7 @@ import { Link } from 'react-router-dom';
 import AuthContext from '../../../contexts/authContext.js';
 
 const Navigation = () => {
-    const { isAuthenticated, email } = useContext(AuthContext);
-    console.log(email)
-    console.log(isAuthenticated)
+    const { isAuthenticated, username } = useContext(AuthContext);
 
     return (
         <header className="site-section site-header">
@@ -20,7 +18,7 @@ const Navigation = () => {
                 {
                     isAuthenticated && (
                         <ul>
-                            <li><span>User: {email}</span></li>
+                            <li><span>Hello, {username}</span></li>
                             <li><Link to='/'>Home</Link></li>
                             <li><Link to='/add-car'>Add car</Link></li>
                             <li><a>My cars</a></li>
@@ -36,7 +34,7 @@ const Navigation = () => {
                             <li><Link to='/'>Home</Link></li>
                             <li><Link to='/all-cars'>Catalog</Link></li>
                             <li><Link to='/login'>Login</Link></li>
-                            <li><a>Register</a></li>
+                            <li><Link to='/register'>Register</Link></li>
                         </ul>
                     )
                 }

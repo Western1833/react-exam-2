@@ -9,3 +9,13 @@ export const login = async (email, password) => {
 
     return result;
 }
+
+export const register = async (email, password, username) => {
+    const result = await post(PATHS.baseUrl+PATHS.register, {
+        email,
+        password,
+        username
+    });
+
+    return result;
+}

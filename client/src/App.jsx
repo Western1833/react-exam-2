@@ -12,6 +12,11 @@ function App() {
         const result = await authService.login(values.email, values.password);
         setAuth(result);
     }
+
+    const registerSubmitHandler = async (values) => {
+      const result = await authService.register(values.email, values.password, values.username);
+      setAuth(result);
+    }
   
   const values = {
     loginSubmitHandler,
@@ -20,7 +25,7 @@ function App() {
     isAuthenticated: !!auth.email
   }
   return (
-    <AuthContext.Provider value={{loginSubmitHandler, ...values}}>
+    <AuthContext.Provider value={{loginSubmitHandler, registerSubmitHandler, ...values}}>
       <Navigation/>
         <Wrapper/>
       <Footer/>
