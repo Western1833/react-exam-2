@@ -2,6 +2,7 @@ import { useContext } from 'react';
 import '../navigation/nav-styles.css';
 import { Link } from 'react-router-dom';
 import AuthContext from '../../../contexts/authContext.js';
+import { PATHS } from '../../../utils/api.js';
 
 const Navigation = () => {
     const { isAuthenticated, username } = useContext(AuthContext);
@@ -22,7 +23,7 @@ const Navigation = () => {
                             <li><Link to='/'>Home</Link></li>
                             <li><Link to='/add-car'>Add car</Link></li>
                             <li><a>My cars</a></li>
-                            <li><a>Logout</a></li>
+                            <li><Link to={`${PATHS.logout}`}>Logout</Link></li>
                         </ul>
 
                     )

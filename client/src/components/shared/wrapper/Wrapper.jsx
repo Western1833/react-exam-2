@@ -1,3 +1,4 @@
+import Logout from '../../authentication/Logout.jsx';
 import Login from '../../authentication/login/Login.jsx';
 import Register from '../../authentication/register/Register.jsx';
 import AllCars from '../../cars-functionalities/all-cars/All-cars.jsx';
@@ -17,6 +18,7 @@ const Wrapper = () => {
                     <Route path='/add-car' element={<CreateCar />} />
                     <Route path='/all-cars' element={<AllCars />} />
                     <Route path='/details/:id' element={<Details />} />
+                    <Route path='/users/logout'element={<Logout />} />
                 </Routes>
             </section>
     );
