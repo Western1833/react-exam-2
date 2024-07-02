@@ -13,16 +13,19 @@ function App() {
     const loginSubmitHandler = async (values) => {
         const result = await authService.login(values.email, values.password);
         setAuth(result);
+        localStorage.setItem('accessToken', result.accessToken)
     }
 
     const registerSubmitHandler = async (values) => {
       const result = await authService.register(values.email, values.password, values.username);
       setAuth(result);
+      localStorage.setItem('accessToken', result.accessToken)
       navigate('/');
     }
 
     const logoutHandler = () => {
       setAuth({});
+      localStorage.removeItem('accessToken');
       navigate('/');
     }
   
