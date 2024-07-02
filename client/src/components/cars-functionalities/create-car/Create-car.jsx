@@ -1,20 +1,17 @@
+import { createCar } from '../../../services/CarServices.js';
 import '../create-car/create-car-styles.css';
+import { useNavigate } from "react-router-dom";
 
 export default function CreateCar() {
-    const createCarSubmitHandler = (e) => {
+    const navigate = useNavigate();
+    const createCarSubmitHandler = async (e) => {
         e.preventDefault();
-        const gameData = Object.fromEntries(new FormData(e.currentTarget));
+        const carData = Object.fromEntries(new FormData(e.currentTarget));
 
-        console.log(gameData);
-        // {
-        //     imageUrl,
-        //     brand,
-        //     model,
-        //     year,
-        //     price,
-        //     description,
-        //     phoneNumber
-        // }
+        await createCar(carData);
+        console.log(carData)
+
+        navigate('/');
     }
 
     return (

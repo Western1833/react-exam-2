@@ -1,24 +1,22 @@
 const buildOptions = (data) => {
-    const options = {};
+    const options = {
+        headers: {}
+    };
 
-    if(data) {
+    const accessToken = localStorage.getItem('accessToken');
+
+    if (data) {
         options.body = JSON.stringify(data);
-        options.headers = {
-            'content-type': 'application/json'
-        }
+        options.headers['Content-Type'] = 'application/json';
     }
 
-    // const accessToken = localStorage.getItem('accessToken');
+    if (accessToken) {
+        options.headers['X-Authorization'] = accessToken;
+        console.log('Access Token:', accessToken);
+    }
 
-    // if(accessToken){
-    //     options.headers = {
-    //         ...options.headers,
-    //         'X-Authorization': accessToken
-    //     }
-    // }
-
-    // return options;
-}
+    return options;
+};
 
 const request = async (method, url, data) => {
     const response = await fetch(url, {

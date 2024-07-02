@@ -21,6 +21,7 @@ const Navigation = () => {
                         <ul>
                             <li><span>Hello, {username}</span></li>
                             <li><Link to='/'>Home</Link></li>
+                            <li><Link to='/all-cars'>Catalog</Link></li>
                             <li><Link to='/add-car'>Add car</Link></li>
                             <li><a>My cars</a></li>
                             <li><Link to={`${PATHS.logout}`}>Logout</Link></li>

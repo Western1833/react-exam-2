@@ -5,7 +5,7 @@ export const PATHS = {
     register: '/users/register',
     logout: '/users/logout',
     cars: '/data/cars',
-    create: '/data/create',
+    create: '/data/cars',
     details: '/cars',
     myCars: '/data/myCars',
     edit: '/cars/:id/edit',
