@@ -5,6 +5,7 @@ import AuthContext from "./contexts/authContext.js";
 import { useState } from "react";
 import * as authService from '../src/services/UserServices.js';
 import { useNavigate } from "react-router-dom";
+import ErrorBoundary from "./components/ErrorBoundary.jsx";
 
 function App() {
   const [auth, setAuth] = useState({});
@@ -38,11 +39,13 @@ function App() {
     isAuthenticated: !!auth.email
   }
   return (
-    <AuthContext.Provider value={values}>
-      <Navigation/>
-        <Wrapper/>
-      <Footer/>
-    </AuthContext.Provider>
+    <ErrorBoundary>
+      <AuthContext.Provider value={values}>
+        <Navigation/>
+          <Wrapper/>
+        <Footer/>
+      </AuthContext.Provider>
+    </ErrorBoundary>
   )
 }
 

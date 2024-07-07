@@ -14,6 +14,10 @@ export function Details() {
         .catch(err => console.log(err));
     }, [id]);
 
+    if(Math.random() < 0.5){
+        throw new Error('Game details error')
+    }
+
     return (
         <div className="card-details">
             <img src={ car.imageUrl } />
