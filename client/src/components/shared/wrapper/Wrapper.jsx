@@ -16,10 +16,12 @@ const Wrapper = () => {
                     <Route path='/' element={<LastThreeCars />} />
                     <Route path='/login' element={<Login />} />
                     <Route path='/register' element={<Register />} />
-                    <Route path='/add-car' element={<AuthGuard><CreateCar /></AuthGuard>} />
                     <Route path='/all-cars' element={<AllCars />} />
                     <Route path='/details/:id' element={<Details />} />
-                    <Route path='/users/logout'element={<Logout />} />
+                    <Route element={<AuthGuard/>}>
+                        <Route path='/add-car' element={<CreateCar />} />
+                        <Route path='/users/logout'element={<Logout />} />
+                    </Route>
                 </Routes>
             </section>
     );
