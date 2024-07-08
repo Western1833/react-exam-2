@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import '../navigation/nav-styles.css';
 import { Link } from 'react-router-dom';
-import AuthContext from '../../../contexts/authContext.js';
+import AuthContext from '../../../contexts/authContext.jsx';
 import { PATHS } from '../../../utils/api.js';
 
 const Navigation = () => {

@@ -22,6 +22,7 @@
     color: black;
     background-color: #CCFF00;
     padding: 0.2em;
+    cursor: pointer;
 }
 
 #delete-link {
@@ -38,6 +39,7 @@
     color: black;
     background-color: #CCFF00;
     padding: 0.2em;
+    cursor: pointer;
 }
 
 .likes {

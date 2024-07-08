@@ -1,7 +1,7 @@
 import "../login/login-styles.css";
 import useForm from "../../../hooks/useForm.js";
 import { useContext } from "react";
-import AuthContext from "../../../contexts/authContext.js";
+import AuthContext from "../../../contexts/authContext.jsx";
 import { useNavigate } from "react-router-dom";
 import { PATHS } from "../../../utils/api.js";
 
@@ -10,9 +10,8 @@ export default function Login() {
     const navigate = useNavigate();
 
     const { values, onChange, onSubmit } = useForm(async (formValues) => {
-        console.log('Login form submitted', formValues); // Log to check form submission
         await loginSubmitHandler(formValues);
-        navigate(PATHS.home); // Navigate after successful login
+        navigate(PATHS.home);
       }, {
         email: '',
         password: ''

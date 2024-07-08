@@ -1,11 +1,21 @@
 import '../details-functionalities/details-functionalities-styles.css';
 import { useState } from 'react';
+import { Link, useParams } from 'react-router-dom';
 
 export function DetailsFunctionalities() {
     const [isVisible, setIsVisible] = useState(false);
+    const {id} = useParams();
 
     const togglePopup = () => {
         setIsVisible(!isVisible);
+    }
+
+    const onEdit = () => {
+        console.log('edit');
+    }
+
+    const onDelete = () => {
+        console.log(id);
     }
 
     return (
@@ -25,8 +35,8 @@ export function DetailsFunctionalities() {
                 <button type="button" className="submit-with-icon">
                     <img src="/thumbsup.png" alt="Like" /></button>
             </div>
-            <a id="edit-link" >Edit</a>
-            <a id="delete-link" >Delete</a>
+            <Link id="edit-link" onClick={onEdit}>Edit</Link>
+            <Link id="delete-link" onClick={onDelete}>Delete</Link>
         </div>
     );
 }

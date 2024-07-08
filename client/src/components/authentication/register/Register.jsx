@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import useForm from '../../../hooks/useForm.js';
 import '../register/register-styles.css';
-import AuthContext from '../../../contexts/authContext.js';
+import AuthContext from '../../../contexts/authContext.jsx';
 
 export default function Register() {
     const {registerSubmitHandler} = useContext(AuthContext);
