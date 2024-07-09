@@ -6,7 +6,7 @@ export const PATHS = {
     logout: '/users/logout',
     cars: '/data/cars',
     create: '/data/cars',
-    details: '/cars',
+    details: '/details',
     myCars: '/data/myCars',
     edit: '/cars/:id/edit',
     lastThreeCars: '?sortBy=_createdOn desc&offset=0&pageSize=3'

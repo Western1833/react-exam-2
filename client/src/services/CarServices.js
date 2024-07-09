@@ -25,3 +25,7 @@ export const editCar = async (carId, carData) => {
     const result = await put(`${PATHS.baseUrl}${PATHS.cars}/${carId}`, carData);
     return result;
 }
+
+export const deleteCar = async (carId) => {
+    await del(`${PATHS.baseUrl}${PATHS.cars}/${carId}`);
+}

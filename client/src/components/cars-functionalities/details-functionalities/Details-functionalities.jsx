@@ -1,12 +1,15 @@
 import '../details-functionalities/details-functionalities-styles.css';
 import { useContext, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import AuthContext from '../../../contexts/authContext.jsx';
+import { deleteCar } from '../../../services/CarServices.js';
+import { PATHS } from '../../../utils/api.js';
 
 export function DetailsFunctionalities(props) {
     const {_id} = useContext(AuthContext);
     const [isVisible, setIsVisible] = useState(false);
     const {id} = useParams();
+    const navigate = useNavigate();
 
     const ownerId = props.ownerId;
 
@@ -16,7 +19,15 @@ export function DetailsFunctionalities(props) {
         setIsVisible(!isVisible);
     }
 
-    const onDelete = () => {
+    const onDelete = async () => {
+        const confirmDelete = window.confirm("Are you sure you want to delete this item?");
+
+        if (confirmDelete) {
+            await deleteCar(id);
+            navigate(-1);
+        } else {
+            navigate(`${PATHS.details}/${id}`);
+        }
     }
 
     return (
@@ -40,7 +51,7 @@ export function DetailsFunctionalities(props) {
                 isOwner && (
                     <>
                         <Link to={`/cars/${id}/edit`} id="edit-link">Edit</Link>
-                        <Link to='/cars/:id/delete' id="delete-link" onClick={onDelete}>Delete</Link>
+                        <a id="delete-link" onClick={onDelete}>Delete</a>
                     </>
                 )
             }
