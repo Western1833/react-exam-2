@@ -4,6 +4,7 @@ import Register from '../../authentication/register/Register.jsx';
 import AllCars from '../../cars-functionalities/all-cars/All-cars.jsx';
 import CreateCar from '../../cars-functionalities/create-car/Create-car.jsx';
 import { Details } from '../../cars-functionalities/details/Details.jsx';
+import { EditCar } from '../../cars-functionalities/edit-car/Edit-car.jsx';
 import LastThreeCars from '../../cars-functionalities/last-three-cars/Last-three-cars.jsx';
 import AuthGuard from '../../guards/AuthGuard.jsx';
 import '../wrapper/wrapper-styles.css';
@@ -20,6 +21,7 @@ const Wrapper = () => {
                     <Route path='/details/:id' element={<Details />} />
                     <Route element={<AuthGuard/>}>
                         <Route path='/add-car' element={<CreateCar />} />
+                        <Route path='/cars/:id/edit' element={<EditCar />} />
                         <Route path='/users/logout'element={<Logout />} />
                     </Route>
                 </Routes>

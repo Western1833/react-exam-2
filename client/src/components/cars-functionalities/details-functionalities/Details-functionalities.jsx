@@ -14,10 +14,6 @@ export function DetailsFunctionalities(props) {
         setIsVisible(!isVisible);
     }
 
-    const onEdit = () => {
-        console.log('edit');
-    }
-
     const onDelete = () => {
     }
 
@@ -41,8 +37,8 @@ export function DetailsFunctionalities(props) {
             {
                 isOwner && (
                     <>
-                        <Link id="edit-link" onClick={onEdit}>Edit</Link>
-                        <Link id="delete-link" onClick={onDelete}>Delete</Link>
+                        <Link to='/cars/:id/edit' id="edit-link">Edit</Link>
+                        <Link to='/cars/:id/delete' id="delete-link" onClick={onDelete}>Delete</Link>
                     </>
                 )
             }
