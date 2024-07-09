@@ -7,6 +7,7 @@ import { getSingleCar } from '../../../services/CarServices.js';
 export function Details() {
     const {id} = useParams();
     const [car, setCar] = useState({});
+    const ownerId = car._ownerId;
 
     useEffect(() => {
         getSingleCar(id)
@@ -30,7 +31,7 @@ export function Details() {
                     <span>Phone number: { car.phoneNumber }</span>
                 </aside>
             </div>
-            <DetailsFunctionalities/>
+            <DetailsFunctionalities ownerId={ownerId}/>
         </div>
     );
 }

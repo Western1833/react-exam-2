@@ -37,7 +37,8 @@ export const AuthProvider = ({
       logoutHandler,
       email: auth.email,
       username: auth.username || auth.email,
-      isAuthenticated: !!auth.email
+      isAuthenticated: !!auth.email,
+      _id: auth._id
     }
 
     return (
