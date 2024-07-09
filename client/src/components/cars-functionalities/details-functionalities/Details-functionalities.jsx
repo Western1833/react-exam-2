@@ -1,11 +1,13 @@
 import '../details-functionalities/details-functionalities-styles.css';
 import { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import AuthContext from '../../../contexts/authContext.jsx';
 
 export function DetailsFunctionalities(props) {
     const {_id} = useContext(AuthContext);
     const [isVisible, setIsVisible] = useState(false);
+    const {carId} = useParams();
+
     const ownerId = props.ownerId;
 
     let isOwner = ownerId === _id;

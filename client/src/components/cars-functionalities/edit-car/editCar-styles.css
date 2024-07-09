@@ -1,4 +1,4 @@
-.createCar-form-container {
+.editCar-form-container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -11,7 +11,7 @@
     background-size: cover;
 }
 
-.createCar-form {
+.editCar-form {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -22,16 +22,16 @@
     padding: 2em;
 }
 
-.createCar-form h3 {
+.editCar-form h3 {
     color: #CCFF00;
 }
 
-#description {
+#descriptionForEdit {
     resize: none;
     border-radius: 0.3em;
 }
 
-.fields-create {
+.fields-edit {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -40,7 +40,7 @@
     height: 100%;
 }
 
-#car-brand, #car-model, #year{
+#car-brandEdit, #car-modelEdit, #yearSelectEdit{
     width: 10em;
     padding: 0.175em 0.7em;
     border-radius: 4px;
@@ -49,13 +49,13 @@
     transition: background-color 0.3s ease, color 0.3s ease, padding 0.3s ease;
 }
 
-#car-brand:hover, #car-model:hover, #year:hover {
+#car-brandEdit:hover, #car-modelEdit:hover, #yearSelectEdit:hover {
     cursor: pointer;
     background-color: rgb(182, 181, 181);
     outline: 2px solid #CCFF00;
 }
 
-#phone-number, #price, #image-select {
+#phone-numberInputEdit, #priceEditInput, #image-selectEdit {
     width: 12em;
     border-radius: 0.3em;
     color: black;
@@ -73,7 +73,7 @@ input[type=number] {
     -moz-appearance: textfield;
 }
 
-#car-brand, #car-model, #year {
+#car-brandEdit, #car-modelEdit, #yearEdit {
     border: none;
     color: black;
     width: 11em;
@@ -82,19 +82,19 @@ input[type=number] {
     transition: background-color 0.3s ease, color 0.3s ease, padding 0.3s ease;
 }
 
-#phone-number:focus, #price:focus, #car-brand:focus, #car-model:focus, #year:focus, #description:focus, #image-select:focus {
+#phone-numberInputEdit:focus, #priceEditInput:focus, #car-brandEdit:focus, #car-modelEdit:focus, #yearEdit:focus, #descriptionEdit:focus, #image-selectEdit:focus {
     outline: 2px solid #CCFF00;
     background-color: rgb(192, 190, 190);
 }
 
-.add-car-btn {
+.edit-car-btn {
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.add-car-btn input {
+.edit-car-btn input {
     width: 30%;
     border: none;
     height: 2.4em;
@@ -104,7 +104,7 @@ input[type=number] {
     transition: background-color 0.3s ease, color 0.3s ease, padding 0.3s ease;
 }
 
-.add-car-btn input[type='submit']:hover {
+.edit-car-btn input[type='submit']:hover {
     background-color: #CCFF00;
     cursor: pointer;
 }

@@ -1,16 +1,16 @@
 import '../edit-car/editCar-styles.css';
 
-export function EditCar() {
+export function EditCar(carId) {
     return (
-        <div className="createCar-form-container">
-            <form className="createCar-form" >
+        <div className="editCar-form-container">
+            <form className="editCar-form" >
                 <h3>Edit car</h3>
-                <div className="fields-create">
-                    <div className="img-select">
-                        <input type="text" id="image-select" placeholder="Image url..." name="imageUrl" />
+                <div className="fields-edit">
+                    <div className="img-selectEdit">
+                        <input type="text" id="image-selectEdit" placeholder="Image url..." name="imageUrl" />
                     </div>
-                    <div className="brand">
-                        <select id="car-brand" name="brand">
+                    <div className="brandEdit">
+                        <select id="car-brandEdit" name="brand">
                             <option value="">Select Brand</option>
                             <option value="Audi">Audi</option>
                             <option value="BMW">BMW</option>
@@ -21,15 +21,15 @@ export function EditCar() {
                         </select>
                     </div>
 
-                    <div className="model">
-                        <select id="car-model" name="model">
+                    <div className="modelEdit">
+                        <select id="car-modelEdit" name="model">
                             <option value="">Select Model</option>
                             <option>530d</option>
                         </select>
                     </div>
 
-                    <div className="year">
-                        <select id="year" name="year">
+                    <div className="yearEdit">
+                        <select id="yearSelectEdit" name="year">
                             <option value="">Select Year</option>
                             <option value="1990">1990</option>
                             <option value="1991">1991</option>
@@ -69,18 +69,18 @@ export function EditCar() {
                         </select>
                     </div>
 
-                    <div className="price">
-                        <input type="number" placeholder="Price" name="price" id="price" />
+                    <div className="priceEdit">
+                        <input type="number" placeholder="Price" name="price" id="priceEditInput" />
                     </div>
 
-                    <textarea name="description" id="description" cols="35" rows="4" placeholder="Description..." ></textarea>
+                    <textarea name="description" id="descriptionForEdit" cols="35" rows="4" placeholder="Description..." ></textarea>
 
-                    <div className="phone-number">
-                        <input type="text" name="phoneNumber" id="phone-number" placeholder="Phone number..." />
+                    <div className="phone-numberEdit">
+                        <input type="text" name="phoneNumber" id="phone-numberInputEdit" placeholder="Phone number..." />
                     </div>
 
                 </div >
-                <div className="add-car-btn">
+                <div className="edit-car-btn">
                     <input type="submit" value="Edit Car" />
                 </div>
             </form >
