@@ -9,7 +9,6 @@ export default function CreateCar() {
         const carData = Object.fromEntries(new FormData(e.currentTarget));
 
         await createCar(carData);
-        console.log(carData)
 
         navigate('/');
     }

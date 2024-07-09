@@ -6,7 +6,7 @@ import AuthContext from '../../../contexts/authContext.jsx';
 export function DetailsFunctionalities(props) {
     const {_id} = useContext(AuthContext);
     const [isVisible, setIsVisible] = useState(false);
-    const {carId} = useParams();
+    const {id} = useParams();
 
     const ownerId = props.ownerId;
 
@@ -39,7 +39,7 @@ export function DetailsFunctionalities(props) {
             {
                 isOwner && (
                     <>
-                        <Link to='/cars/:id/edit' id="edit-link">Edit</Link>
+                        <Link to={`/cars/${id}/edit`} id="edit-link">Edit</Link>
                         <Link to='/cars/:id/delete' id="delete-link" onClick={onDelete}>Delete</Link>
                     </>
                 )

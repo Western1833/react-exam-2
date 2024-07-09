@@ -1,16 +1,53 @@
+import { useNavigate, useParams } from 'react-router-dom';
 import '../edit-car/editCar-styles.css';
+import { useEffect, useState } from 'react';
+import { editCar, getSingleCar } from '../../../services/CarServices.js';
 
-export function EditCar(carId) {
+export function EditCar() {
+    const {id} = useParams();
+    const navigate = useNavigate();
+
+    const [car, setCar] = useState({
+        imageUrl: '',
+        brand: '',
+        model: '',
+        year: '',
+        price: '',
+        description: '',
+        phoneNumber: ''
+    });
+
+    useEffect(() => {
+        getSingleCar(id)
+        .then(car => setCar(car))
+        .catch(err => console.log(err));
+    }, [id]);
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setCar(prevCar => ({
+            ...prevCar,
+            [name]: value
+        }));
+    };
+
+    const editHandler = async (e) => {
+        e.preventDefault();
+        
+        await editCar(id, car);
+        navigate(-1);
+    }
+
     return (
         <div className="editCar-form-container">
-            <form className="editCar-form" >
+            <form className="editCar-form" onSubmit={editHandler}>
                 <h3>Edit car</h3>
                 <div className="fields-edit">
                     <div className="img-selectEdit">
-                        <input type="text" id="image-selectEdit" placeholder="Image url..." name="imageUrl" />
+                        <input type="text" id="image-selectEdit" placeholder="Image url..." name="imageUrl" value={car.imageUrl} onChange={handleChange}/>
                     </div>
                     <div className="brandEdit">
-                        <select id="car-brandEdit" name="brand">
+                        <select id="car-brandEdit" name="brand" value={car.brand} onChange={handleChange}>
                             <option value="">Select Brand</option>
                             <option value="Audi">Audi</option>
                             <option value="BMW">BMW</option>
@@ -22,14 +59,14 @@ export function EditCar(carId) {
                     </div>
 
                     <div className="modelEdit">
-                        <select id="car-modelEdit" name="model">
+                        <select id="car-modelEdit" name="model" value={car.model} onChange={handleChange}>
                             <option value="">Select Model</option>
                             <option>530d</option>
                         </select>
                     </div>
 
                     <div className="yearEdit">
-                        <select id="yearSelectEdit" name="year">
+                        <select id="yearSelectEdit" name="year" value={car.year} onChange={handleChange}>
                             <option value="">Select Year</option>
                             <option value="1990">1990</option>
                             <option value="1991">1991</option>
@@ -70,13 +107,13 @@ export function EditCar(carId) {
                     </div>
 
                     <div className="priceEdit">
-                        <input type="number" placeholder="Price" name="price" id="priceEditInput" />
+                        <input type="number" placeholder="Price" name="price" id="priceEditInput" value={car.price} onChange={handleChange}/>
                     </div>
 
-                    <textarea name="description" id="descriptionForEdit" cols="35" rows="4" placeholder="Description..." ></textarea>
+                    <textarea name="description" id="descriptionForEdit" cols="35" rows="4" placeholder="Description..." onChange={handleChange} value={car.description}></textarea>
 
                     <div className="phone-numberEdit">
-                        <input type="text" name="phoneNumber" id="phone-numberInputEdit" placeholder="Phone number..." />
+                        <input type="text" name="phoneNumber" id="phone-numberInputEdit" placeholder="Phone number..." onChange={handleChange} value={car.phoneNumber}/>
                     </div>
 
                 </div >

@@ -17,7 +17,11 @@ export const getSingleCar = async (id) => {
 }
 
 export const createCar = async (carData) => {
-    console.log(carData)
     const result = await post(PATHS.baseUrl+PATHS.create, carData);
+    return result;
+}
+
+export const editCar = async (carId, carData) => {
+    const result = await put(`${PATHS.baseUrl}${PATHS.cars}/${carId}`, carData);
     return result;
 }
