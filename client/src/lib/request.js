@@ -12,7 +12,6 @@ const buildOptions = (data) => {
 
     if (accessToken) {
         options.headers['X-Authorization'] = accessToken;
-        console.log('Access Token:', accessToken);
     }
 
     return options;
