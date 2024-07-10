@@ -6,7 +6,7 @@ import { deleteCar } from '../../../services/CarServices.js';
 import { PATHS } from '../../../utils/api.js';
 
 export function DetailsFunctionalities(props) {
-    const {_id} = useContext(AuthContext);
+    const {_id, isAuthenticated} = useContext(AuthContext);
     const [isVisible, setIsVisible] = useState(false);
     const {id} = useParams();
     const navigate = useNavigate();
@@ -44,8 +44,12 @@ export function DetailsFunctionalities(props) {
                 }
                 <button id="likes-btn" onClick={togglePopup}>Likes</button>
                 <input type="number" id="likes" disabled />
-                <button type="button" className="submit-with-icon">
+                {
+                    !isOwner && isAuthenticated && (
+                        <button type="button" className="submit-with-icon">
                     <img src="/thumbsup.png" alt="Like" /></button>
+                    )
+                }
             </div>
             {
                 isOwner && (
