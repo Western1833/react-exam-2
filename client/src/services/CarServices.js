@@ -29,3 +29,8 @@ export const editCar = async (carId, carData) => {
 export const deleteCar = async (carId) => {
     await del(`${PATHS.baseUrl}${PATHS.cars}/${carId}`);
 }
+
+export const getMyCars = async (userId) => {
+    const result = await get(`${PATHS.baseUrl}/data/cars?where=_ownerId%3D%22${userId}%22`);
+    return result;
+}

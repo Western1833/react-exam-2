@@ -1,0 +1,39 @@
+.myCars-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 900px;
+    max-height: 400px;
+}
+
+.myCar-row {
+    max-width: 100%;
+    max-height: 400px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    overflow-y: auto;
+    gap: 1em;
+}
+
+.myCar-row::-webkit-scrollbar {
+    width: 8px;
+}
+
+.myCar-row::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.myCar-row::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+.myCar-row::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.myCar-row::-webkit-scrollbar-thumb:active {
+    background: #333;
+}

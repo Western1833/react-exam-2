@@ -9,6 +9,7 @@ import LastThreeCars from '../../cars-functionalities/last-three-cars/Last-three
 import AuthGuard from '../../guards/AuthGuard.jsx';
 import '../wrapper/wrapper-styles.css';
 import { Route, Routes } from 'react-router-dom';
+import MyCars from '../../cars-functionalities/my-cars/MyCars.jsx';
 
 const Wrapper = () => {
     return (
@@ -23,6 +24,7 @@ const Wrapper = () => {
                         <Route path='/add-car' element={<CreateCar />} />
                         <Route path='/cars/:id/edit' element={<EditCar />} />
                         <Route path='/users/logout'element={<Logout />} />
+                        <Route path='/my-cars'element={<MyCars />} />
                     </Route>
                 </Routes>
             </section>
