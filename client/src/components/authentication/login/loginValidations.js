@@ -4,7 +4,7 @@ export const loginValidations = (fieldValues) => {
     if ('email' in fieldValues) {
         if (!fieldValues.email) {
             errors.email = "Email is required!";
-        } else if (!/\S+@\S+\.\S+/.test(fieldValues.email)) {
+        } else if (!/^\w{2,}(\.\w+)*@[a-zA-Z0-9-]+\.[a-zA-Z0-9-]{2,}$/.test(fieldValues.email)) {
             errors.email = "Email is not valid!";
         }
     }
