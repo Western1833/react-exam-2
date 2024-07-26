@@ -13,6 +13,38 @@ export default function CreateCar() {
         navigate('/');
     }
 
+    const onBrandClick = (e) => {
+        const brand = e.target.value;
+
+        return brand;
+    }
+
+    const updateModelField = (brand) => {
+
+        switch (brand) {
+            case 'Audi':
+                return ['A1', 'A2', 'A3', 'A4', 'A5', 'A6', 'A7', 'A8'];
+            case 'Bmw':
+                return ['1 Series', '2 Series', '3 Series', '4 Series', '5 Series', '6 Series', '7 Series'];
+            case 'Mercedes':
+                return ['A-Class', 'B-Class', 'C-Class', 'E-Class', 'S-Class', 'ML'];
+            case 'Honda':
+                return ['Civic', 'Accord', 'CR-V', 'Fit', 'HR-V', 'Pilot'];
+            case 'Mazda':
+                return ['Mazda3', 'Mazda6', 'CX-3', 'CX-5', 'CX-9'];
+            case 'Toyota':
+                return ['Corolla', 'Camry', 'RAV4', 'Prius', 'Highlander', 'Yaris'];
+            case 'Opel':
+                return ['Astra', 'Corsa', 'Insignia', 'Mokka', 'Grandland X'];
+            case 'VW':
+                return ['Golf', 'Polo', 'Passat', 'Tiguan', 'Touareg'];
+            case 'Peugeot':
+                return ['208', '308', '508', '2008', '3008', '5008'];
+            default:
+                return [];
+        }
+    }
+
     return (
         <div className="createCar-form-container">
             <form className="createCar-form" onSubmit={createCarSubmitHandler}>
@@ -22,7 +54,7 @@ export default function CreateCar() {
                         <input type="text" id="image-select" placeholder="Image url..." name="imageUrl" />
                     </div>
                     <div className="brand">
-                        <select id="car-brand" name="brand">
+                        <select id="car-brand" name="brand" onClick={onBrandClick}>
                             <option value="">Select Brand</option>
                             <option value="Audi">Audi</option>
                             <option value="BMW">BMW</option>
