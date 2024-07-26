@@ -2,36 +2,43 @@ import { useContext } from 'react';
 import useForm from '../../../hooks/useForm.js';
 import '../register/register-styles.css';
 import AuthContext from '../../../contexts/authContext.jsx';
+import { registerValidations } from './registerValidations.js';
+import { useNavigate } from 'react-router-dom';
+import { PATHS } from '../../../utils/api.js';
 
 export default function Register() {
     const {registerSubmitHandler} = useContext(AuthContext);
-    const {values, onChange, onSubmit} = useForm(registerSubmitHandler, {
+    const navigate = useNavigate();
+
+    const {values, errors, onChange, onSubmit, onBlur} = useForm(async (formValues) => {
+        await registerSubmitHandler(formValues);
+        navigate(PATHS.home);
+    }, {
         email: '',
         password: '',
-        rePass: '',
-        username: ''
-    });
+        username: '',
+        rePass: ''
+    }, (fieldValues) => registerValidations(fieldValues, values));
 
     return (
         <div className="register-form-container">
             <form className="register-form" onSubmit={onSubmit}>
                 <h3>Registration</h3>
                 <div className="fields">
-                    <input type="text" placeholder="Email..." id="email" name="email" autoComplete="email" onChange={onChange} value={values.email}/>
-                    {/* <p className="error" >Email is required!</p>
-                    <p className="error" >Email is not valid!</p> */}
+                    <input type="text" placeholder="Email..." id="email" name="email" autoComplete="email" onBlur={onBlur} onChange={onChange} value={values.email}/>
+                    {errors.email && <p className="error">{errors.email}</p>}
 
-                    <input type="text" placeholder="Username..." id="username" name="username" autoComplete="username" onChange={onChange} value={values.username}/>
-                    {/* <p className="error" >Username is required!</p>
-                    <p className="error" >Minimum 4 chars!</p> */}
-                    <input type="password" placeholder="Password..." id="password" name="password" onChange={onChange} value={values.password}/>
-                    {/* <p className="error" >Password is required!</p>
-                    <p className="error" >Minimum 4 chars!</p> */}
-                    <input type="password" placeholder="Repeat password..." id="rePass" name="rePass" onChange={onChange} value={values.rePass}/>
-                    {/* <p className="error" >Repeat password field does not match password!</p> */}
+                    <input type="text" placeholder="Username..." id="username" name="username" autoComplete="username" onBlur={onBlur} onChange={onChange} value={values.username}/>
+                    {errors.username && <p className='error'>{errors.username}</p>}
+
+                    <input type="password" placeholder="Password..." id="password" name="password" onBlur={onBlur} onChange={onChange} value={values.password}/>
+                    {errors.password && <p className='error'>{errors.password}</p>}
+
+                    <input type="password" placeholder="Repeat password..." id="rePass" name="rePass" onBlur={onBlur} onChange={onChange} value={values.rePass}/>
+                    {errors.rePass && <p className='error'>{errors.rePass}</p>}
                     <input type="submit" value="Register" />
                 </div>
-                {/* <p className="error">errmsg</p> */}
+                
                 <div className="message">
                     <p>Already have an account?</p>
                     <a>Sign in</a>
