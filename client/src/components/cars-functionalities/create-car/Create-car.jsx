@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { createCar } from '../../../services/CarServices.js';
 import '../create-car/create-car-styles.css';
 import { useNavigate } from "react-router-dom";
@@ -13,10 +14,11 @@ export default function CreateCar() {
         navigate('/');
     }
 
+    const [models, setModels] = useState([]);
+
     const onBrandClick = (e) => {
         const brand = e.target.value;
-
-        return brand;
+        setModels(updateModelField(brand));
     }
 
     const updateModelField = (brand) => {
@@ -24,7 +26,7 @@ export default function CreateCar() {
         switch (brand) {
             case 'Audi':
                 return ['A1', 'A2', 'A3', 'A4', 'A5', 'A6', 'A7', 'A8'];
-            case 'Bmw':
+            case 'BMW':
                 return ['1 Series', '2 Series', '3 Series', '4 Series', '5 Series', '6 Series', '7 Series'];
             case 'Mercedes':
                 return ['A-Class', 'B-Class', 'C-Class', 'E-Class', 'S-Class', 'ML'];
@@ -68,7 +70,9 @@ export default function CreateCar() {
                     <div className="model">
                         <select id="car-model" name="model">
                             <option value="">Select Model</option>
-                            <option>530d</option>
+                            {models.map((model, index) => (
+                                <option key={index} value={model}>{model}</option>
+                            ))}
                         </select>
                     </div>
 
