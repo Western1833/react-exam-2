@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { editCar, getSingleCar } from '../../../services/CarServices.js';
 
 export function EditCar() {
-    const {id} = useParams();
+    const { id } = useParams();
     const navigate = useNavigate();
 
     const [car, setCar] = useState({
@@ -17,10 +17,17 @@ export function EditCar() {
         phoneNumber: ''
     });
 
+    const [models, setModels] = useState([]);
+
     useEffect(() => {
         getSingleCar(id)
-        .then(car => setCar(car))
-        .catch(err => console.log(err));
+            .then(car => {
+                setCar(car);
+                if (car.brand) {
+                    setModels(updateModelField(car.brand));
+                }
+            })
+            .catch(err => console.log(err));
     }, [id]);
 
     const handleChange = (e) => {
@@ -33,10 +40,43 @@ export function EditCar() {
 
     const editHandler = async (e) => {
         e.preventDefault();
-        
         await editCar(id, car);
         navigate(-1);
-    }
+    };
+
+    const onBrandClick = (e) => {
+        const selectedBrand = e.target.value;
+        setCar(prevCar => ({
+            ...prevCar,
+            brand: selectedBrand
+        }));
+        setModels(updateModelField(selectedBrand));
+    };
+
+    const updateModelField = (brand) => {
+        switch (brand) {
+            case 'Audi':
+                return ['A1', 'A2', 'A3', 'A4', 'A5', 'A6', 'A7', 'A8'];
+            case 'BMW':
+                return ['1 Series', '2 Series', '3 Series', '4 Series', '5 Series', '6 Series', '7 Series'];
+            case 'Mercedes':
+                return ['A-Class', 'B-Class', 'C-Class', 'E-Class', 'S-Class', 'ML'];
+            case 'Honda':
+                return ['Civic', 'Accord', 'CR-V', 'Fit', 'HR-V', 'Pilot'];
+            case 'Mazda':
+                return ['3', '6', 'CX-3', 'CX-5', 'CX-9'];
+            case 'Toyota':
+                return ['Corolla', 'Camry', 'RAV4', 'Prius', 'Highlander', 'Yaris'];
+            case 'Opel':
+                return ['Astra', 'Corsa', 'Insignia', 'Mokka', 'Grandland X'];
+            case 'VW':
+                return ['Golf', 'Polo', 'Passat', 'Tiguan', 'Touareg'];
+            case 'Peugeot':
+                return ['208', '308', '508', '2008', '3008', '5008'];
+            default:
+                return [];
+        }
+    };
 
     return (
         <div className="editCar-form-container">
@@ -44,10 +84,10 @@ export function EditCar() {
                 <h3>Edit car</h3>
                 <div className="fields-edit">
                     <div className="img-selectEdit">
-                        <input type="text" id="image-selectEdit" placeholder="Image url..." name="imageUrl" value={car.imageUrl} onChange={handleChange}/>
+                        <input type="text" id="image-selectEdit" placeholder="Image url..." name="imageUrl" value={car.imageUrl} onChange={handleChange} />
                     </div>
                     <div className="brandEdit">
-                        <select id="car-brandEdit" name="brand" value={car.brand} onChange={handleChange}>
+                        <select id="car-brandEdit" name="brand" value={car.brand} onChange={onBrandClick}>
                             <option value="">Select Brand</option>
                             <option value="Audi">Audi</option>
                             <option value="BMW">BMW</option>
@@ -61,7 +101,9 @@ export function EditCar() {
                     <div className="modelEdit">
                         <select id="car-modelEdit" name="model" value={car.model} onChange={handleChange}>
                             <option value="">Select Model</option>
-                            <option>530d</option>
+                            {models.map((model, index) => (
+                                <option value={model} key={index}>{model}</option>
+                            ))}
                         </select>
                     </div>
 
@@ -107,20 +149,19 @@ export function EditCar() {
                     </div>
 
                     <div className="priceEdit">
-                        <input type="number" placeholder="Price" name="price" id="priceEditInput" value={car.price} onChange={handleChange}/>
+                        <input type="number" placeholder="Price" name="price" id="priceEditInput" value={car.price} onChange={handleChange} />
                     </div>
 
                     <textarea name="description" id="descriptionForEdit" cols="35" rows="4" placeholder="Description..." onChange={handleChange} value={car.description}></textarea>
 
                     <div className="phone-numberEdit">
-                        <input type="text" name="phoneNumber" id="phone-numberInputEdit" placeholder="Phone number..." onChange={handleChange} value={car.phoneNumber}/>
+                        <input type="text" name="phoneNumber" id="phone-numberInputEdit" placeholder="Phone number..." onChange={handleChange} value={car.phoneNumber} />
                     </div>
-
-                </div >
+                </div>
                 <div className="edit-car-btn">
                     <input type="submit" value="Edit Car" />
                 </div>
-            </form >
-        </div >
+            </form>
+        </div>
     );
 }
